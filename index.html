@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Plugin</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <div class="w3-container">
+        <div class="w3-card-4">
+            <div class="w3-container w3-green">
+                <h2>Input Form</h2>
+            </div>
+
+            <div class="w3-container">
+                <p>
+                    <input class="w3-input" type="text" id="letters">
+                    <label>Letters</label></p>
+                <p>
+                    <input class="w3-input" type="text" id="oneTime">
+                    <label>One Time</label></p>
+                <textarea class="w3-input" cols="30" rows="10" id="genText"></textarea>
+                <button onclick="generate()" class="w3-btn w3-green">Generate</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+        function generate() {
+            let txt = '';
+            let letters = $('#letters').value.split('');
+            let oneTime = parseInt($('#oneTime').value);
+            console.log(letters, oneTime)
+            for (i = 0; i < 100; i++) {
+                for (j = 0; j < 4; j++) {
+                    let random = Math.floor(Math.random() * letters.length) + 0;
+                    txt += letters[random];
+                }
+                txt += '|';
+            }
+            $('#genText').value = txt;
+        }
+    </script>
+</body>
+
+</html>
