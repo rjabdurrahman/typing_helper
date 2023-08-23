@@ -35,9 +35,8 @@
             let txt = '';
             let letters = $('#letters').value.split('');
             let oneTime = parseInt($('#oneTime').value);
-            console.log(letters, oneTime)
             for (i = 0; i < 100; i++) {
-                for (j = 0; j < 4; j++) {
+                for (j = 0; j < (oneTime >= 3 ? oneTime : 4); j++) {
                     let random = Math.floor(Math.random() * letters.length) + 0;
                     txt += letters[random];
                 }
